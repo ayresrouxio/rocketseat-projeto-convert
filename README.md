@@ -1,7 +1,7 @@
 # Projeto Convert
 
 <p align="center">  
-   <img src="files/preview.png" alt="Preview do projeto"/> 
+   <img src=".github/preview.png" alt="Preview do projeto"/> 
 </p>
 
 ## Sobre:
