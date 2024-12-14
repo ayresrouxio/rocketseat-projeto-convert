@@ -1,22 +1,18 @@
-// Cotação de moedas do dia.
 const USD = 4.87
 const EUR = 5.32
 const GBP = 6.08
 
-// Obtendo os elementos do formulário.
 const form = document.querySelector("form")
 const amount = document.querySelector("#amount")
 const currency = document.querySelector("#currency")
 const footer = document.querySelector("main footer")
 const description = document.querySelector("#description")
 
-// Manipulando o input amount para receber somente números.
 amount.addEventListener("input", () => {
   const hasCharactersRegex = /\D+/g
   amount.value = amount.value.replace(hasCharactersRegex, "")
 })
 
-// Captura o evento de submit (enviar) do formulário.
 form.onsubmit = (event) => {
   event.preventDefault()
 
@@ -33,19 +29,23 @@ form.onsubmit = (event) => {
   }
 }
 
-// Função para converter a moeda.
 function convertCurrency(amount, price, symbol) {
   try {
-    description.textContent = `${symbol} 1 = R$ ${price}`
+    description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
 
-    // Aplicar a classe que exibe o footer para mostrar o resultado.
     footer.classList.add("show-result")
   } catch (error) {
-    // Remove a classe do footer removendo ele da tela.
     footer.classList.remove("show-result")
 
     console.log(error)
 
     alert("Não foi possível converter. Tente novamente mais tarde.")
   }
+}
+
+function formatCurrencyBRL(value) {
+  return Number(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  })
 }
