@@ -14,7 +14,7 @@ Nesse projeto a cotação das moedas não é em tempo real.
 
 ## Tecnologias:
 
-- Figma
+- Figma;
 - HTML e CSS;
 - Javascript;
 
